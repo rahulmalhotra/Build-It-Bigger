@@ -31,9 +31,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets{
+
+    sourceSets {
         main { java.srcDirs = ['src/main/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
+        free { java.srcDirs = ['src/free/java'] }
+        paid { java.srcDirs = ['src/paid/java'] }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+        }
     }
 }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShowMessage</string>
+    <string name="message_placeholder">Message will be displayed here</string>
 </resources>

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements JokeApiResponse {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Joke is loading..please wait", Toast.LENGTH_SHORT).show();
         new JokeEndpointAsyncTask(this).execute();
     }
 

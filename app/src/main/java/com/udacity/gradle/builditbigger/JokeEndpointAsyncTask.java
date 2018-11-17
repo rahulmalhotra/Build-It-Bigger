@@ -2,8 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.util.Pair;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -47,8 +45,6 @@ public class JokeEndpointAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG);
-        Log.d("result", result);
         response = (JokeApiResponse) context;
         response.getJoke(result);
         super.onPostExecute(result);
