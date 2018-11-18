@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
 
 import junit.framework.Assert;
 
@@ -17,6 +18,8 @@ import java.util.concurrent.ExecutionException;
 @LargeTest
 public class JokeEndpointTest {
 
+    private String TAG = getClass().getSimpleName();
+
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     String joke;
@@ -29,9 +32,11 @@ public class JokeEndpointTest {
             Thread.sleep(5000);
             joke = asyncTask.get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            joke = "";
+            Log.d(TAG, e.getMessage());
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            joke = "";
+            Log.d(TAG, e.getMessage());
         }
         Assert.assertFalse(joke.isEmpty());
     }
